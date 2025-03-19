@@ -10,7 +10,7 @@ CCFLAGS = -Wall -Wextra -Werror -g3 -lm
 
 SRC_DIR = src
 
-SRC = \
+SRC = so_long.c map.c map_utils.c\
 
 OBJ = $(SRC:.c=.o)
 

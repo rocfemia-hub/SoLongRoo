@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:26:57 by roo               #+#    #+#             */
-/*   Updated: 2025/03/16 15:09:15 by roo              ###   ########.fr       */
+/*   Updated: 2025/03/19 04:24:16 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft.h"
 
 char	*ft_find_line(char *buffer);
 char	*ft_create_line(char *buffer, char *line);

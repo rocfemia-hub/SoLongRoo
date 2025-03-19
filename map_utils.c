@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 02:19:33 by roo               #+#    #+#             */
-/*   Updated: 2025/03/19 02:42:26 by roo              ###   ########.fr       */
+/*   Updated: 2025/03/19 04:34:25 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ int	count_char(char **map, char c)
 		}
 		i++;
 	}
+	ft_printf("%d\n", count);
 	return (count);
 }
 
-int	count_str(char **map, t_maps *var_map)
+int	count_str(char **map)
 {
 	int i;
 
@@ -70,4 +71,32 @@ int coords_xy(char **map, int c, t_maps *var_map)
 		tmp_row++;
 	}
 	return (-1);
+}
+
+int	wall_check(char **map, t_maps *var_map)
+{
+	int i;
+	size_t j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		if (i == 0 || i == var_map->lines_map)
+		{
+			while (map[i][j])
+			{
+				if (map[i][j] != 1)
+					return (-1);
+				j++;
+			}
+		}
+		else if (j == 0 || j == ft_strlen(map[0]))
+		{
+			if (map[i][j] != 1)
+				return (-1);
+		}
+		i++;
+	}
+	return (0);
 }

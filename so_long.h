@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:20:05 by roo               #+#    #+#             */
-/*   Updated: 2025/03/19 02:43:47 by roo              ###   ########.fr       */
+/*   Updated: 2025/03/19 04:19:53 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct maps
 {
 	char	**map;
 	char	**map_cpy;
+	int		lines_map;
 	int		row_player;
 	int		col_player;
 	
@@ -32,7 +33,8 @@ int control_map(t_maps *var_map);
 //MAP UTILS
 
 int	count_char(char **map, char c);
-int	count_str(char **map, t_maps *var_map);
+int	count_str(char **map);
 int coords_xy(char **map, int c, t_maps *var_map);
+int	wall_check(char **map, t_maps *var_map);
 
 #endif
