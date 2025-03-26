@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 02:17:00 by roo               #+#    #+#             */
-/*   Updated: 2025/03/26 03:04:01 by roo              ###   ########.fr       */
+/*   Updated: 2025/03/26 04:20:20 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,35 +43,24 @@ int	cpy_map(char **argv, t_maps *var_map)
 
 int control_map(t_maps *var_map)
 {
-	/* ft_printf("%s\n", var_map->map[0]);
-	ft_printf("%s\n", var_map->map[1]);
-	ft_printf("%s\n", var_map->map[2]);
-	ft_printf("%s\n", var_map->map[3]);
-	ft_printf("%s\n\n", var_map->map[4]); */
 	if (count_char(var_map->map_cpy, 'P') != 1)
 		return (ft_printf("Error player"), -1);
 	if (count_char(var_map->map_cpy, 'E') != 1)
 		return (ft_printf("Error exit"), -1);
 	if (count_char(var_map->map_cpy, 'C') < 1)
-		return (ft_printf("Error colecctionables"), -1);
-	coords_xy(var_map->map_cpy, 'P', var_map);
+		return (ft_printf("Error coleccionables"), -1);
 	if (count_str(var_map->map_cpy) != 0)
-		return(ft_printf("Error de longitud de mapa"), -1);
+		return(-1);
 	if (wall_check(var_map->map_cpy, var_map) != 0)
-		return(ft_printf("Error de pared del mapa"), -1);
+		return(-1);
 	coords_xy(var_map->map_cpy, 'P', var_map);
 	flood_fill(var_map, var_map->row_player, var_map->col_player);
 	if (count_char(var_map->map_cpy, 'P') != 0)
-		return (ft_printf("Error de mapa no jugable_1"), -1);
+		return (ft_printf("Error de mapa no jugable"), -1);
 	if (count_char(var_map->map_cpy, 'E') != 0)
-		return (ft_printf("Error de mapa no jugable_2"), -1);
+		return (ft_printf("Error de mapa no jugable"), -1);
 	if (count_char(var_map->map_cpy, 'C') != 0)
-		return (ft_printf("Error de mapa no jugable_3"), -1);
-	/* ft_printf("%s\n", var_map->map_cpy[0]);
-	ft_printf("%s\n", var_map->map_cpy[1]);
-	ft_printf("%s\n", var_map->map_cpy[2]);
-	ft_printf("%s\n", var_map->map_cpy[3]);
-	ft_printf("%s\n", var_map->map_cpy[4]); */
+		return (ft_printf("Error de mapa no jugable"), -1);
 	return (0);
 }
 

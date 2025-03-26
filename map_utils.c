@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 02:19:33 by roo               #+#    #+#             */
-/*   Updated: 2025/03/26 03:04:15 by roo              ###   ########.fr       */
+/*   Updated: 2025/03/26 03:48:47 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	count_str(char **map)
 	while (map[i])
 	{
 		if (ft_strlen(map[0]) != ft_strlen(map[i]))
-			return (-1);
+			return (ft_printf("Error de longitud de mapa"), -1);
 		i++;
 	}
 	return (0);
@@ -60,13 +60,13 @@ int	wall_check(char **map, t_maps *var_map)
 		while (map[i][++j])
 		{
 			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C')
-				return (-1);
+				return (ft_printf("Error de caracter no permitido"), -1);
 			if ((i == 0 && map[i][j] != '1') || (i == var_map->lines_map - 1 && map[i][j] != '1'))
-				return (-1);
+				return (ft_printf("Error de pared del mapa"), -1);
 			if (j == 0 && map[i][j] != '1')
-				return (-1);
+				return (ft_printf("Error de pared del mapa"), -1);
 			if (j == ft_strlen(map[0]) - 1 && map[i][j] != '1')
-				return (-1);
+				return (ft_printf("Error de pared del mapa"), -1);
 		}
 		i++;
 	}
