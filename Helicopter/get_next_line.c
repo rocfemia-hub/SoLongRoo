@@ -6,99 +6,74 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:56:42 by roo               #+#    #+#             */
-/*   Updated: 2025/03/16 15:08:32 by roo              ###   ########.fr       */
+/*   Updated: 2025/03/20 00:19:12 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_find_line(char *buffer)
+char	*ft_read_line(int fd, char *buffer)
 {
-	char		*line;
-	static int	line_len = 0;
+	char	*tmp;
+	int		readed;
 
-	buffer = buffer + line_len;
-	if (!buffer || buffer[0] == '\0')
+	readed = 1;
+	tmp = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!tmp)
 		return (NULL);
-	if (ft_strchr(buffer, '\n'))
-		line_len = line_len + ft_strchr(buffer, '\n') - buffer + 1;
-	else
-		line_len = line_len + ft_strchr(buffer, '\0') - buffer;
-	if (ft_strchr(buffer, '\n'))
-		line = ft_calloc(sizeof(char), ft_strchr(buffer, '\n') - buffer + 2);
-	else
-		line = ft_calloc(sizeof(char), ft_strchr(buffer, '\0') - buffer + 1);
-	if (line == NULL)
-		return (NULL);
-	ft_create_line(buffer, line);
-	return (line);
+	tmp[0] = '\0';
+	while (readed > 0 && !ft_strchr_gnl(tmp, '\n'))
+	{
+		readed = read(fd, tmp, BUFFER_SIZE);
+		if (readed > 0)
+		{
+			tmp[readed] = '\0';
+			buffer = ft_strjoin_gnl(buffer, tmp);
+		}
+	}
+	free(tmp);
+	if (readed == -1)
+		return (ft_free(&buffer));
+	return (buffer);
 }
 
-char	*ft_create_line(char *buffer, char *line)
+char	*get_next_line2(char *buffer, char *next_line)
 {
-	int	i;
+	char	*new_start;
+	int		len;
 
-	i = 0;
-	while (buffer[i] != '\n' && buffer[i] != '\0')
+	if (next_line == NULL)
 	{
-		line[i] = buffer[i];
-		i++;
+		new_start = NULL;
+		return (ft_free(&buffer));
 	}
-	if (buffer[i] == '\n')
-	{
-		line[i] = buffer[i];
-		i++;
-	}
-	line[i] = '\0';
-	return (line);
+	else
+		len = (next_line - buffer) + 1;
+	if (!buffer[len])
+		return (ft_free(&buffer));
+	new_start = ft_substr_gnl(buffer, len, ft_strlen_gnl(buffer) - len);
+	ft_free(&buffer);
+	if (!new_start)
+		return (NULL);
+	return (new_start);
 }
 
 char	*get_next_line(int fd)
 {
-	static char		*buffer;
-	char			*temp_buffer;
-	char			*line;
-	static ssize_t	readed = 1;
+	static char	*buffer;
+	char		*line;
+	char		*ptr;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0)
 		return (NULL);
-	if (buffer == NULL)
-		buffer = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
-	if (buffer == NULL)
+	if ((buffer && !ft_strchr_gnl(buffer, '\n')) || !buffer)
+		buffer = ft_read_line(fd, buffer);
+	if (!buffer)
 		return (NULL);
-	while (readed > 0)
-	{
-		temp_buffer = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
-		if (temp_buffer == NULL)
-			return (free(buffer), NULL);
-		readed = read(fd, temp_buffer, BUFFER_SIZE);
-		buffer = ft_strjoin(buffer, temp_buffer);
-		free(temp_buffer);
-	}
-	line = ft_find_line(buffer);
-	if ((readed == -1 && line == NULL && !buffer) || (readed == 0 && !line
-			&& buffer))
-		return (free(buffer), buffer = NULL, line);
+	ptr = ft_strchr_gnl(buffer, '\n');
+	line = ft_substr_gnl(buffer, 0, (ptr - buffer) + 1);
+	if (!line)
+		return (ft_free(&buffer));
+	buffer = get_next_line2(buffer, ptr);
 	return (line);
 }
-
-/*#include <fcntl.h>
-int	main (void)
-{
- 	char *file = "./patata.txt";
- 	char *str;
- 	int fd;
-	
- 	fd = open(file, O_RDONLY);
-	str = get_next_line(fd);
- 	while(str != NULL)
- 	{
- 		printf("%s", str);
-		if (!str)
-			return (0);
- 		free(str);
- 	}
- 	free(str);
- 	close(fd);
-	return (0);
-}*/

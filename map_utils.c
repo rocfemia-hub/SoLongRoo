@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 02:19:33 by roo               #+#    #+#             */
-/*   Updated: 2025/03/19 04:34:25 by roo              ###   ########.fr       */
+/*   Updated: 2025/03/26 03:04:15 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	count_char(char **map, char c)
 		}
 		i++;
 	}
-	ft_printf("%d\n", count);
 	return (count);
 }
 
@@ -42,17 +41,42 @@ int	count_str(char **map)
 	i = 1;
 	while (map[i])
 	{
-		if (ft_strlen(map[i]) != ft_strlen(map[i - 1]))
+		if (ft_strlen(map[0]) != ft_strlen(map[i]))
 			return (-1);
 		i++;
 	}
 	return (0);
 }
 
-int coords_xy(char **map, int c, t_maps *var_map)
+int	wall_check(char **map, t_maps *var_map)
 {
-	int tmp_row;
-	int tmp_col;
+	int i;
+	size_t j;
+	
+	i = 0;
+	while (map[i])
+	{
+		j = -1;
+		while (map[i][++j])
+		{
+			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C')
+				return (-1);
+			if ((i == 0 && map[i][j] != '1') || (i == var_map->lines_map - 1 && map[i][j] != '1'))
+				return (-1);
+			if (j == 0 && map[i][j] != '1')
+				return (-1);
+			if (j == ft_strlen(map[0]) - 1 && map[i][j] != '1')
+				return (-1);
+		}
+		i++;
+	}
+	return (0);
+}
+
+void coords_xy(char **map, char c, t_maps *var_map)
+{
+	int tmp_row; //fila
+	int tmp_col; //columna
 	
 	tmp_row = 0;
 	while (map[tmp_row])
@@ -64,39 +88,9 @@ int coords_xy(char **map, int c, t_maps *var_map)
 			{
 				var_map->row_player = tmp_row;
 				var_map->col_player = tmp_col;
-				return (0);
 			}
 			tmp_col++;
 		}
 		tmp_row++;
 	}
-	return (-1);
-}
-
-int	wall_check(char **map, t_maps *var_map)
-{
-	int i;
-	size_t j;
-
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		if (i == 0 || i == var_map->lines_map)
-		{
-			while (map[i][j])
-			{
-				if (map[i][j] != 1)
-					return (-1);
-				j++;
-			}
-		}
-		else if (j == 0 || j == ft_strlen(map[0]))
-		{
-			if (map[i][j] != 1)
-				return (-1);
-		}
-		i++;
-	}
-	return (0);
 }

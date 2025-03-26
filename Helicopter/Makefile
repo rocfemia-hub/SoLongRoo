@@ -6,14 +6,14 @@
 #    By: roo <roo@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/20 11:13:01 by rocfemia          #+#    #+#              #
-#    Updated: 2025/03/19 04:26:20 by roo              ###   ########.fr        #
+#    Updated: 2025/03/20 00:47:21 by roo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_substr.c \
