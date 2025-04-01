@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 02:19:33 by roo               #+#    #+#             */
-/*   Updated: 2025/03/26 03:48:47 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/01 20:07:35 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,3 +94,8 @@ void coords_xy(char **map, char c, t_maps *var_map)
 		tmp_row++;
 	}
 }
+
+/*void	map_counter(t_maps *var_map)
+{
+	return ;
+}*/

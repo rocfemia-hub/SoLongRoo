@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:20:05 by roo               #+#    #+#             */
-/*   Updated: 2025/03/26 03:04:24 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/01 20:14:56 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,21 @@ typedef struct maps
 	int		lines_map;
 	int		row_player;
 	int		col_player;
+	int		map_w;
+	int		map_h;
 	
 }	t_maps;
+
+typedef	struct mlx
+{
+	void	*xpm_player;
+	void	*xpm_water;
+	void	*xpm_stone;
+	void	*xpm_colecc;
+	//t_maps	*map;
+	
+}	t_mlx;
+
 
 // MAIN
 
@@ -37,11 +50,17 @@ int		cpy_map(char **argv, t_maps *var_map);
 int 	control_map(t_maps *var_map);
 void	flood_fill(t_maps *var_map, int	row, int col);
 
-//MAP UTILS
+// MAP UTILS
 
 int		count_char(char **map, char c);
 int		count_str(char **map);
 int		wall_check(char **map, t_maps *var_map);
 void	coords_xy(char **map, char c, t_maps *var_map);
+void	map_counter(t_maps *var_map);
+
+// MLX
+
+void	initiation_mlx(t_maps *var_map, t_mlx *var_xpm);
+void	put_player(t_maps *var_map, t_mlx *var_xpm, void *mlx, void *mlx_window);
 
 #endif

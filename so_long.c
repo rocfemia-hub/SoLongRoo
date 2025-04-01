@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:39:05 by roo               #+#    #+#             */
-/*   Updated: 2025/03/26 03:00:11 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/01 20:13:51 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,18 @@
 int main(int argc, char **argv)
 {
 	t_maps	*var_map;
+	t_mlx	*var_mlx;
 	
 	var_map = ft_calloc(1, sizeof(t_maps));
+	var_mlx = ft_calloc(1, sizeof(t_mlx));
 	if(control_argv(argc, argv, var_map) == -1)
 		return(-1);
+		
+	// MLX CONTROL
+		
 	if(cpy_map(argv, var_map) == -1)
 		return(-1);
+	initiation_mlx(var_map, var_mlx);
 	return (0);
 }
 
