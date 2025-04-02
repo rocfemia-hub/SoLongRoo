@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 02:19:33 by roo               #+#    #+#             */
-/*   Updated: 2025/04/01 20:07:35 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/01 22:49:26 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void coords_xy(char **map, char c, t_maps *var_map)
 	int tmp_col; //columna
 	
 	tmp_row = 0;
+	tmp_col = 0;
 	while (map[tmp_row])
 	{
 		tmp_col = 0;
@@ -93,9 +94,6 @@ void coords_xy(char **map, char c, t_maps *var_map)
 		}
 		tmp_row++;
 	}
+	var_map->map_w = tmp_col;
+	var_map->map_h = tmp_row;
 }
-
-/*void	map_counter(t_maps *var_map)
-{
-	return ;
-}*/

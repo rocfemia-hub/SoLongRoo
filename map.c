@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 02:17:00 by roo               #+#    #+#             */
-/*   Updated: 2025/04/01 20:07:10 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/01 23:55:39 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	cpy_map(char **argv, t_maps *var_map)
 		if (line[ft_strlen(line) - 1] == '\n')
 			line[ft_strlen(line) - 1] = '\0';
 		var_map->map[lines] = line;
-		var_map->map_cpy[lines] = var_map->map[lines];
+		var_map->map_cpy[lines] = ft_strdup(var_map->map[lines]);
 		line = get_next_line(fd);
 		lines++;
 	}
@@ -55,7 +55,6 @@ int control_map(t_maps *var_map)
 		return(-1);
 	coords_xy(var_map->map_cpy, 'P', var_map);
 	flood_fill(var_map, var_map->row_player, var_map->col_player);
-	//map_counter(var_map);
 	if (count_char(var_map->map_cpy, 'P') != 0)
 		return (ft_printf("Error de mapa no jugable"), -1);
 	if (count_char(var_map->map_cpy, 'E') != 0)
