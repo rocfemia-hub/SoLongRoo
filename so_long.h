@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:20:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/11 16:40:10 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/11 18:10:18 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef	struct mlx
 	void	*xpm_exit;
 	void	*mlx_ptr;
 	void	*win_ptr;
-	//t_maps	*map;
+	t_maps	*var_map2;
 	
 }	t_mlx;
 
@@ -67,6 +67,6 @@ void	put_xpm(t_maps *var_map, t_mlx *var_mlx);
 
 //MOVES
 
-int		press_keys(int keycode);
+int		press_keys(int keycode, t_mlx *var_mlx);
 
 #endif
