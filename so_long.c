@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:39:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/01 20:13:51 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/11 16:40:19 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 	if(cpy_map(argv, var_map) == -1)
 		return(-1);
 	initiation_mlx(var_map, var_mlx);
+	mlx_loop(var_mlx->mlx_ptr);
 	return (0);
 }
 

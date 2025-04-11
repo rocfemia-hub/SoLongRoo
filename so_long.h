@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:20:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/11 16:08:04 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/11 16:40:10 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef	struct mlx
 	void	*xpm_stone;
 	void	*xpm_colecc;
 	void	*xpm_exit;
+	void	*mlx_ptr;
+	void	*win_ptr;
 	//t_maps	*map;
 	
 }	t_mlx;
@@ -61,7 +63,7 @@ void	coords_xy(char **map, char c, t_maps *var_map);
 // MLX
 
 void	initiation_mlx(t_maps *var_map, t_mlx *var_xpm);
-void	put_xpm(t_maps *var_map, t_mlx *var_mlx, void *mlx, void *mlx_window);
+void	put_xpm(t_maps *var_map, t_mlx *var_mlx);
 
 //MOVES
 
