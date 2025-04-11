@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 16:24:13 by roo               #+#    #+#             */
-/*   Updated: 2025/04/02 00:01:49 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/11 16:09:53 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	initiation_mlx(t_maps *var_map, t_mlx *var_mlx)
 	var_mlx->xpm_colecc = mlx_xpm_file_to_image(mlx, "./textures/colecc.xpm", &var_map->map_w, &var_map->map_h);
 	var_mlx->xpm_exit = mlx_xpm_file_to_image(mlx, "./textures/exit.xpm", &var_map->map_w, &var_map->map_h);
 	put_xpm(var_map, var_mlx, mlx, mlx_window);
+	mlx_key_hook(mlx_window, press_keys, &var_mlx);
 	mlx_destroy_window(mlx, mlx_window);
 	mlx_destroy_image(mlx, var_mlx->xpm_water);
 	mlx_destroy_image(mlx, var_mlx->xpm_stone);

@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:20:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/01 23:18:28 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/11 16:08:04 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,9 @@ void	coords_xy(char **map, char c, t_maps *var_map);
 
 void	initiation_mlx(t_maps *var_map, t_mlx *var_xpm);
 void	put_xpm(t_maps *var_map, t_mlx *var_mlx, void *mlx, void *mlx_window);
+
+//MOVES
+
+int		press_keys(int keycode);
 
 #endif
