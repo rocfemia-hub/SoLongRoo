@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 16:24:13 by roo               #+#    #+#             */
-/*   Updated: 2025/04/12 04:34:06 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/12 16:59:01 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ void	put_xpm(t_maps *var_map, t_mlx *var_mlx)
 		j = 0;
 		while (var_map->map[i][j])
 		{
-			if (var_map->map[i][j] == '0')
-				mlx_put_image_to_window(var_mlx->mlx_ptr, var_mlx->win_ptr, var_mlx->xpm_water, j * 64, i *64);
-			else if (var_map->map[i][j] == '1')
-				mlx_put_image_to_window(var_mlx->mlx_ptr, var_mlx->win_ptr, var_mlx->xpm_stone, j * 64, i *64);
-			else if (i == var_map->row_player && j == var_map->col_player)
+			if (i == var_map->row_player && j == var_map->col_player)
 			{
 				var_map->map[i][j] = '0';
 				mlx_put_image_to_window(var_mlx->mlx_ptr, var_mlx->win_ptr, var_mlx->xpm_player, j * 64, i *64);
 			}
+			else if (var_map->map[i][j] == '0')
+				mlx_put_image_to_window(var_mlx->mlx_ptr, var_mlx->win_ptr, var_mlx->xpm_water, j * 64, i *64);
+			else if (var_map->map[i][j] == '1')
+				mlx_put_image_to_window(var_mlx->mlx_ptr, var_mlx->win_ptr, var_mlx->xpm_stone, j * 64, i *64);
 			else if (var_map->map[i][j] == 'E')
 				mlx_put_image_to_window(var_mlx->mlx_ptr, var_mlx->win_ptr, var_mlx->xpm_exit, j * 64, i *64);
 			else if (var_map->map[i][j] == 'C')

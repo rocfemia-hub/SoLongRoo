@@ -6,13 +6,13 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 02:19:33 by roo               #+#    #+#             */
-/*   Updated: 2025/04/01 22:49:26 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/12 17:50:26 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	count_char(char **map, char c)
+int	count_char(t_maps *var_map, char c)
 {
 	int i;
 	int j;
@@ -20,17 +20,19 @@ int	count_char(char **map, char c)
 	
 	i = 0;
 	count = 0;
-	while (map[i])
+	while (var_map->map_cpy[i])
 	{
 		j = 0;
-		while (map[i][j])
+		while (var_map->map_cpy[i][j])
 		{
-			if (map[i][j] == c)
+			if (var_map->map_cpy[i][j] == c)
 				count++;
 			j++;
 		}
 		i++;
 	}
+	if(c == 'C' && count != 0)
+		var_map->total_colecc = count;
 	return (count);
 }
 

@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:20:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/11 18:10:18 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/12 17:51:04 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct maps
 	int		col_player;
 	int		map_w;
 	int		map_h;
+	int		total_colecc;
 	
 }	t_maps;
 
@@ -55,7 +56,7 @@ void	flood_fill(t_maps *var_map, int	row, int col);
 
 // MAP UTILS
 
-int		count_char(char **map, char c);
+int		count_char(t_maps *var_map, char c);
 int		count_str(char **map);
 int		wall_check(char **map, t_maps *var_map);
 void	coords_xy(char **map, char c, t_maps *var_map);

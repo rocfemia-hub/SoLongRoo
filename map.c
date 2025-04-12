@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 02:17:00 by roo               #+#    #+#             */
-/*   Updated: 2025/04/01 23:55:39 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/12 17:49:32 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ int	cpy_map(char **argv, t_maps *var_map)
 
 int control_map(t_maps *var_map)
 {
-	if (count_char(var_map->map_cpy, 'P') != 1)
+	if (count_char(var_map, 'P') != 1)
 		return (ft_printf("Error player"), -1);
-	if (count_char(var_map->map_cpy, 'E') != 1)
+	if (count_char(var_map, 'E') != 1)
 		return (ft_printf("Error exit"), -1);
-	if (count_char(var_map->map_cpy, 'C') < 1)
+	if (count_char(var_map, 'C') < 1)
 		return (ft_printf("Error coleccionables"), -1);
 	if (count_str(var_map->map_cpy) != 0)
 		return(-1);
@@ -55,11 +55,11 @@ int control_map(t_maps *var_map)
 		return(-1);
 	coords_xy(var_map->map_cpy, 'P', var_map);
 	flood_fill(var_map, var_map->row_player, var_map->col_player);
-	if (count_char(var_map->map_cpy, 'P') != 0)
+	if (count_char(var_map, 'P') != 0)
 		return (ft_printf("Error de mapa no jugable"), -1);
-	if (count_char(var_map->map_cpy, 'E') != 0)
+	if (count_char(var_map, 'E') != 0)
 		return (ft_printf("Error de mapa no jugable"), -1);
-	if (count_char(var_map->map_cpy, 'C') != 0)
+	if (count_char(var_map, 'C') != 0)
 		return (ft_printf("Error de mapa no jugable"), -1);
 	return (0);
 }
