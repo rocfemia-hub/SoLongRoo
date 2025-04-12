@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:20:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/12 17:51:04 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/13 00:28:56 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct maps
 	int		map_w;
 	int		map_h;
 	int		total_colecc;
+	int		movs;
 	
 }	t_maps;
 

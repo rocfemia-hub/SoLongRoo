@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:00:19 by roo               #+#    #+#             */
-/*   Updated: 2025/04/12 18:43:21 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/13 00:33:59 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,27 @@ int	press_keys(int keycode, t_mlx *var_mlx)
 	next_col = var_mlx->var_map2->col_player;
 	if (keycode == 119) //W
 	{
-		ft_printf("Has pulsado W\n");
 		next_row--;
+		var_mlx->var_map2->movs = var_mlx->var_map2->movs + 1;
+		ft_printf("%d\n", var_mlx->var_map2->movs);
 	}
 	else if (keycode == 97) //A
 	{
-		ft_printf("Has pulsado A\n");
 		next_col--;
+		var_mlx->var_map2->movs = var_mlx->var_map2->movs + 1;
+		ft_printf("%d\n", var_mlx->var_map2->movs);
 	}
 	else if (keycode == 115) //S
 	{
-		ft_printf("Has pulsado S\n");
 		next_row++;
+		var_mlx->var_map2->movs = var_mlx->var_map2->movs + 1;
+		ft_printf("%d\n", var_mlx->var_map2->movs);
 	}
 	else if (keycode == 100) //D
 	{
-		ft_printf("Has pulsado D\n");
 		next_col++;
+		var_mlx->var_map2->movs = var_mlx->var_map2->movs + 1;
+		ft_printf("%d\n", var_mlx->var_map2->movs);
 	}
 	else if (keycode == 65307) //ESC
 		exit(0);
