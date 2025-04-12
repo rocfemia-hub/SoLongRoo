@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:00:19 by roo               #+#    #+#             */
-/*   Updated: 2025/04/12 04:38:06 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/12 18:43:21 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ int	press_keys(int keycode, t_mlx *var_mlx)
 	if (next_row < 0 || next_row >= var_mlx->var_map2->map_h || next_col < 0 || next_col >= var_mlx->var_map2->map_w)
 		return (0);
 	next_tile = var_mlx->var_map2->map[next_row][next_col];
+	//if (var_mlx->var_map2->map[next_row][next_col] == 'P')
+	//	var_mlx->var_map2->map[next_row][next_col] = '0';	
+	if (var_mlx->var_map2->map[next_row][next_col] == 'C')
+	{
+		var_mlx->var_map2->map[next_row][next_col] = '0';	
+		var_mlx->var_map2->total_colecc--;
+	}
 	//evitar si son muros
 	if (next_tile == '1')
 		return (0);

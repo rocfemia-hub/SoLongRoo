@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 16:24:13 by roo               #+#    #+#             */
-/*   Updated: 2025/04/12 16:59:01 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/12 18:38:10 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	put_xpm(t_maps *var_map, t_mlx *var_mlx)
 		{
 			if (i == var_map->row_player && j == var_map->col_player)
 			{
-				var_map->map[i][j] = '0';
 				mlx_put_image_to_window(var_mlx->mlx_ptr, var_mlx->win_ptr, var_mlx->xpm_player, j * 64, i *64);
 			}
 			else if (var_map->map[i][j] == '0')
