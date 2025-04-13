@@ -10,7 +10,7 @@ CCFLAGS = -Wall -Wextra -Werror -g3 -lm -L./minilibx-linux -lXext -lX11 -lm -lz
 
 SRC_DIR = src
 
-SRC = so_long.c map.c map_utils.c mlx1.c moves.c\
+SRC = so_long.c map_utils.c mlx_movs.c\
 
 OBJ = $(SRC:.c=.o)
 

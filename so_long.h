@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:20:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/13 03:48:48 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/13 06:41:32 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,7 @@ typedef	struct mlx
 
 // MAIN
 
-int control_argv(int argc, char **argv, t_maps *var_map);
-
-// MAP
-
+int 	control_argv(int argc, char **argv, t_maps *var_map);
 int		cpy_map(char **argv, t_maps *var_map);
 int 	control_map(t_maps *var_map);
 void	flood_fill(t_maps *var_map, int	row, int col);
@@ -64,13 +61,10 @@ int		count_str(char **map);
 int		wall_check(char **map, t_maps *var_map);
 void	coords_xy(char **map, char c, t_maps *var_map);
 
-// MLX
+// MLX & MOVES
 
 void	initiation_mlx(t_maps *var_map, t_mlx *var_xpm);
 void	put_xpm(t_maps *var_map, t_mlx *var_mlx);
-
-//MOVES
-
 int		press_keys(int keycode, t_mlx *var_mlx);
 int		keycodes(int keycode, t_mlx *var_mlx);
 
