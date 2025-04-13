@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:20:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/13 06:41:32 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/13 14:59:11 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ void	initiation_mlx(t_maps *var_map, t_mlx *var_xpm);
 void	put_xpm(t_maps *var_map, t_mlx *var_mlx);
 int		press_keys(int keycode, t_mlx *var_mlx);
 int		keycodes(int keycode, t_mlx *var_mlx);
+int		close_game(t_mlx *var_mlx);
 
 #endif
