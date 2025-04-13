@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 16:24:13 by roo               #+#    #+#             */
-/*   Updated: 2025/04/12 18:38:10 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/13 03:55:38 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	initiation_mlx(t_maps *var_map, t_mlx *var_mlx)
 	var_mlx->xpm_exit = mlx_xpm_file_to_image(var_mlx->mlx_ptr, "./textures/exit.xpm", &var_map->map_w, &var_map->map_h);
 	put_xpm(var_map, var_mlx);
 	mlx_key_hook(var_mlx->win_ptr, press_keys, var_mlx);
-	//mlx_destroy_window(var_mlx->mlx_ptr, win_ptr);
+	//mlx_destroy_window(var_mlx->mlx_ptr, var_mlx->win_ptr);
 	//mlx_destroy_image(var_mlx->mlx_ptr, var_mlx->xpm_water);
 	//mlx_destroy_image(var_mlx->mlx_ptr, var_mlx->xpm_stone);
 	//mlx_destroy_image(var_mlx->mlx_ptr, var_mlx->xpm_player);
@@ -43,9 +43,7 @@ void	put_xpm(t_maps *var_map, t_mlx *var_mlx)
 		while (var_map->map[i][j])
 		{
 			if (i == var_map->row_player && j == var_map->col_player)
-			{
 				mlx_put_image_to_window(var_mlx->mlx_ptr, var_mlx->win_ptr, var_mlx->xpm_player, j * 64, i *64);
-			}
 			else if (var_map->map[i][j] == '0')
 				mlx_put_image_to_window(var_mlx->mlx_ptr, var_mlx->win_ptr, var_mlx->xpm_water, j * 64, i *64);
 			else if (var_map->map[i][j] == '1')
