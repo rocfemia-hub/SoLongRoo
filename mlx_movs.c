@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 16:24:13 by roo               #+#    #+#             */
-/*   Updated: 2025/04/15 16:23:50 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/15 17:28:05 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,12 @@ int	press_keys(int keycode, t_mlx *var_mlx)
 		var_mlx->var_map2->map[var_mlx->next_row][var_mlx->next_col] = '0';	
 		var_mlx->var_map2->total_colecc--;
 	}
+	if (next_tile != '1' && (var_mlx->next_row != var_mlx->var_map2->row_player || var_mlx->next_col != var_mlx->var_map2->col_player))
+		var_mlx->movs = var_mlx->movs + 1;
 	if (next_tile == '1')
 		return (0);
 	var_mlx->var_map2->row_player = var_mlx->next_row;
 	var_mlx->var_map2->col_player = var_mlx->next_col;
-	var_mlx->movs = var_mlx->movs + 1;
 	put_xpm(var_mlx->var_map2, var_mlx);
 	return (0);
 }
