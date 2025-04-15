@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:39:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/15 14:25:49 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/15 18:20:58 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,10 @@ int main(int argc, char **argv)
 	var_mlx->var_map2 = var_map;
 	if(control_argv(argc, argv, var_map) == -1)
 		return(-1);
-	
-	// MLX CONTROL
-	
-	if(cpy_map(argv, var_map) == -1)
+	if(cpy_map(argv, var_map, var_mlx) == -1)
 		return(-1);
-	var_mlx->movs = 1;
-	initiation_mlx(var_map, var_mlx);
+	var_mlx->movs = 0;
 	mlx_loop(var_mlx->mlx_ptr);
-	exit(0);
 	return (0);
 }
 
@@ -61,7 +56,7 @@ int control_argv(int argc, char **argv, t_maps *var_map)
 	return(0);
 }
 
-int	cpy_map(char **argv, t_maps *var_map)
+int	cpy_map(char **argv, t_maps *var_map, t_mlx *var_mlx)
 {
 	int 	fd;
 	int		lines;
@@ -85,12 +80,12 @@ int	cpy_map(char **argv, t_maps *var_map)
 	var_map->map[lines] = NULL;
 	var_map->map_cpy[lines] = NULL;
 	close(fd);
-	if(control_map(var_map) == -1)
+	if(control_map(var_map, var_mlx) == -1)
 		return(-1);
 	return(0);
 }
 
-int control_map(t_maps *var_map)
+int control_map(t_maps *var_map, t_mlx *var_mlx)
 {
 	if (count_char(var_map, 'P') != 1)
 		return (ft_printf("Error player"), -1);
@@ -110,6 +105,8 @@ int control_map(t_maps *var_map)
 		return (ft_printf("Error de mapa no jugable"), -1);
 	if (count_char(var_map, 'C') != 0)
 		return (ft_printf("Error de mapa no jugable"), -1);
+	if(initiation_mlx(var_map, var_mlx) == -1)
+		return (ft_printf("Error de xpm"), -1);
 	return (0);
 }
 
