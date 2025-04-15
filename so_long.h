@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:20:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/13 14:59:11 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/15 13:16:40 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct maps
 typedef	struct mlx
 {
 	void	*xpm_player;
+	void	*xpm_dplayer;
+	void	*xpm_izplayer;
 	void	*xpm_water;
 	void	*xpm_stone;
 	void	*xpm_colecc;
