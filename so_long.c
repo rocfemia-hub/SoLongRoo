@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:39:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/15 18:20:58 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/16 12:40:07 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,25 +88,25 @@ int	cpy_map(char **argv, t_maps *var_map, t_mlx *var_mlx)
 int control_map(t_maps *var_map, t_mlx *var_mlx)
 {
 	if (count_char(var_map, 'P') != 1)
-		return (ft_printf("Error player"), -1);
+		return (ft_printf("Error player"), close_game(var_mlx), -1);
 	if (count_char(var_map, 'E') != 1)
-		return (ft_printf("Error exit"), -1);
+		return (ft_printf("Error exit"), close_game(var_mlx), -1);
 	if (count_char(var_map, 'C') < 1)
-		return (ft_printf("Error coleccionables"), -1);
+		return (ft_printf("Error coleccionables"), close_game(var_mlx), -1);
 	if (count_str(var_map->map_cpy) != 0)
-		return(-1);
+		return(close_game(var_mlx), -1);
 	if (wall_check(var_map->map_cpy, var_map) != 0)
-		return(-1);
+		return(close_game(var_mlx), -1);
 	coords_xy(var_map->map_cpy, 'P', var_map);
 	flood_fill(var_map, var_map->row_player, var_map->col_player);
 	if (count_char(var_map, 'P') != 0)
-		return (ft_printf("Error de mapa no jugable"), -1);
+		return (ft_printf("Error de mapa no jugable"), close_game(var_mlx), -1);
 	if (count_char(var_map, 'E') != 0)
-		return (ft_printf("Error de mapa no jugable"), -1);
+		return (ft_printf("Error de mapa no jugable"), close_game(var_mlx), -1);
 	if (count_char(var_map, 'C') != 0)
-		return (ft_printf("Error de mapa no jugable"), -1);
+		return (ft_printf("Error de mapa no jugable"), close_game(var_mlx), -1);
 	if(initiation_mlx(var_map, var_mlx) == -1)
-		return (ft_printf("Error de xpm"), -1);
+		return (ft_printf("Error de xpm"), close_game(var_mlx), -1);
 	return (0);
 }
 

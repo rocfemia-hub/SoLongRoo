@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:20:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/15 17:45:45 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/15 18:39:57 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int		count_char(t_maps *var_map, char c);
 int		count_str(char **map);
 int		wall_check(char **map, t_maps *var_map);
 void	coords_xy(char **map, char c, t_maps *var_map);
+void	free_map(char **map);
 
 // MLX & MOVES
 

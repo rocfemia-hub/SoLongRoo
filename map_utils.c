@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 02:19:33 by roo               #+#    #+#             */
-/*   Updated: 2025/04/12 17:50:26 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/15 23:29:32 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,15 @@ void coords_xy(char **map, char c, t_maps *var_map)
 	}
 	var_map->map_w = tmp_col;
 	var_map->map_h = tmp_row;
+}
+
+void	free_map(char **map)
+{
+	int i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }
