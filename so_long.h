@@ -6,7 +6,7 @@
 /*   By: roo <roo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:20:05 by roo               #+#    #+#             */
-/*   Updated: 2025/04/15 18:39:57 by roo              ###   ########.fr       */
+/*   Updated: 2025/04/16 17:20:12 by roo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,9 @@ typedef struct maps
 	int		map_w;
 	int		map_h;
 	int		total_colecc;
-	
 }	t_maps;
 
-typedef	struct mlx
+typedef struct mlx
 {
 	void	*xpm_player;
 	void	*xpm_dplayer;
@@ -45,16 +44,14 @@ typedef	struct mlx
 	int		next_col;
 	int		movs;
 	t_maps	*var_map2;
-	
 }	t_mlx;
-
 
 // MAIN
 
-int 	control_argv(int argc, char **argv, t_maps *var_map);
+int		control_argv(int argc, char **argv, t_maps *var_map);
 int		cpy_map(char **argv, t_maps *var_map, t_mlx *var_mlx);
-int 	control_map(t_maps *var_map, t_mlx *var_mlx);
-void	flood_fill(t_maps *var_map, int	row, int col);
+int		control_map(t_maps *var_map, t_mlx *var_mlx);
+void	flood_fill(t_maps *var_map, int row, int col);
 
 // MAP UTILS
 
@@ -67,7 +64,7 @@ void	free_map(char **map);
 // MLX & MOVES
 
 int		initiation_mlx(t_maps *var_map, t_mlx *var_xpm);
-void	put_xpm(t_maps *var_map, t_mlx *var_mlx);
+void	put_xpm(t_maps *var_map, t_mlx *var_mlx, int i, int j);
 int		press_keys(int keycode, t_mlx *var_mlx);
 int		keycodes(int keycode, t_mlx *var_mlx);
 int		close_game(t_mlx *var_mlx);
