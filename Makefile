@@ -1,12 +1,12 @@
 LIB = ar rcs
 RM = rm -f
 
-CC = gcc
+CC = cc
 
 BLUE   = \033[34m
 RESET  = \033[0m
 
-CCFLAGS = -Wall -Wextra -Werror -g3 -lm -L./minilibx-linux -lXext -lX11 -lm -lz
+CCFLAGS = -Wall -Wextra -Werror -g3
 
 SRC_DIR = src
 
